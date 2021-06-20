@@ -1,0 +1,3 @@
+Bir varlık veya nesnenin farklı durumlarda farklı davranmasına denir.
+base class üzerinden işlemler yapılır. Ama onu miras alan diğer sınıflar da aynı metotdu kullandıklarında. O referansa sahip oldukları için
+JRE hangi class a ait metodu çalıştıracağını bilir ve o şekildeki varlık ya da nesneyi çalıştırır.
