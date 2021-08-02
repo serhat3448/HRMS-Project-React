@@ -12,33 +12,16 @@ export default function JobAdvertDetail() {
   const {authItem} = useSelector(state => state.auth)
 
   const [jobAdvert, setJobAdvert] = useState({});
-  //let [favorites, setFavorites] = useState([]);
+
 
   useEffect(() => {
     let jobAdvertService = new JobAdvertService();
-    //let favoriteService = new FavoriteService();
+
+
     jobAdvertService.getById(id).then((result) => setJobAdvert(result.data.data));
-    /*if(authItem[0].loggedIn===true && authItem[0].user.userType===1){
-      favoriteService.getByCandidateId(authItem[0].user.id).then((result) => {
-        setFavorites(result.data.data.map((favoriteAd) => (
-          favoriteAd.jobAd.id
-        )))
-      })
-    }
-    */
+
   }, [id,authItem]);
 
-  /*const handleAddFavorites = (jobAdId) => {
-    let favoriteService = new FavoriteService();
-    favoriteService.addFavorite(authItem[0].user.id,jobAdId).then((result) => {
-      toast.success(result.data.message)
-      favorites.push(jobAdId)
-      setFavorites([...favorites])
-    }).catch((result) => {
-      toast.error(result.response.data.message)
-    })
-  }
-  */
 
   return (
     
