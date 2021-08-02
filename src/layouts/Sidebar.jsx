@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Icon, Menu } from 'semantic-ui-react'
 
 export default function Sidebar() {
@@ -6,24 +7,24 @@ export default function Sidebar() {
         <div>
             <Menu inverted icon="labeled" vertical>
                 <Menu.Item
-                    name="bullhorn"
+                    name="bullhorn" as={NavLink} to="/jobPositions"
                 >
                     <Icon name="bullhorn" />
-                    Job Position
+                    İş Pozisyonları
                 </Menu.Item>
 
                 <Menu.Item
-                    name="user"
+                    name="user" as={NavLink} to="/jobseekerList"
                 >
-                    <Icon name="user" />
-                    Jobseeker
+                    <Icon name="user"  />
+                    İş Arayanlar
                 </Menu.Item>
 
                 <Menu.Item
-                    name="user"
+                    name="user"  as={NavLink} to="/employerList"
                 >
-                    <Icon name="user" />
-                    Employer
+                    <Icon name="user"/>
+                    Şirketler
                 </Menu.Item>
             </Menu>
         </div>
