@@ -16,12 +16,12 @@ export default function JobPositionList() {
     <div>
       <Header as="h2">
         <Icon name="list alternate outline" />
-        <Header.Content>Job Position List</Header.Content>
+        <Header.Content>İŞ POZİSYONLARI</Header.Content>
       </Header>
       <Table color="blue" key="blue">
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Job Title</Table.HeaderCell>
+            <Table.HeaderCell>BAŞLIK</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

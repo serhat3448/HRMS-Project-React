@@ -3,6 +3,11 @@ import axios from "axios";
 export default class JobseekerService {
 
     getJobseekers() {
-        return axios.get("http://localhost:8080/api/jobseekers/getall")
+        return axios.get("https://hrms-backend-canli.herokuapp.com/api/jobseekers/getall")
     }
+
+    register(values){
+        return axios.post("https://hrms-backend-canli.herokuapp.com/api/jobseekers/add",values)
+    }
+
 }

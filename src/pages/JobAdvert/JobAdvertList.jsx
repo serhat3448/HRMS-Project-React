@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button, Header, Icon } from "semantic-ui-react";
+import { Table, Icon, Card, Button, Pagination } from "semantic-ui-react";
 import JobAdvertService from "../../services/jobAdvertService";
+import { Link } from "react-router-dom";
 
 export default function JobAdvertList() {
   const [adverts, setAdverts] = useState([]);
@@ -14,39 +15,54 @@ export default function JobAdvertList() {
 
   return (
     <div>
-      <Header as="h2">
-        <Icon name="list alternate outline" />
-        <Header.Content>Job Advert List</Header.Content>
-      </Header>
-      <Table color="blue" key="blue">
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Job Title</Table.HeaderCell>
-            <Table.HeaderCell>Company Name</Table.HeaderCell>
-            <Table.HeaderCell>City</Table.HeaderCell>
-            <Table.HeaderCell>Open Position Count</Table.HeaderCell>
-            <Table.HeaderCell>Deadline</Table.HeaderCell>
-            <Table.HeaderCell>Is Open</Table.HeaderCell>
-            <Table.HeaderCell>Detail</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+      <Card fluid color={"black"}>
+        <Card.Content>
+          <Table color={"black"}>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>İş Pozisyonu</Table.HeaderCell>
+                <Table.HeaderCell>Şehir</Table.HeaderCell>
+                <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
+                <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
+                <Table.HeaderCell>Detaylar</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-        <Table.Body>
-          {adverts.map((advert) => (
-            <Table.Row key={advert.id}>
-              <Table.Cell>{advert.jobPosition.jobTitle}</Table.Cell>
-              <Table.Cell>{advert.employer.companyName}</Table.Cell>
-              <Table.Cell>{advert.city.name}</Table.Cell>
-              <Table.Cell>{advert.openPositionCount}</Table.Cell>
-              <Table.Cell>{advert.deadline}</Table.Cell>
-              <Table.Cell>{advert.open.toString()}</Table.Cell>
-              <Table.Cell>
-                <Button>View</Button>
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
+            <Table.Body>
+
+              {adverts.map((jobAdvert) => (
+                <Table.Row key={jobAdvert.id}>   
+                  <Table.Cell>{jobAdvert.jobPosition?.jobTitle}</Table.Cell>              
+                  <Table.Cell>{jobAdvert.city?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.workPlace?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.workTime?.name}</Table.Cell>
+                  <Table.Cell>
+                    <Button animated as={Link} to={`/jobAdvertDetails/${jobAdvert.id}`}>
+                      <Button.Content visible>Detayları Gör</Button.Content>
+                      <Button.Content hidden>
+                        <Icon name="arrow right" />
+                      </Button.Content>
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Card.Content>
+        <Card.Content extra>
+          <Icon name="list" />
+          {adverts?.length} Adet İş ilanı mevcut
+        </Card.Content>
+      </Card>
+      <Pagination
+    boundaryRange={0}
+    defaultActivePage={1}
+    ellipsisItem={null}
+    firstItem={null}
+    lastItem={null}
+    siblingRange={1}
+    totalPages={10}
+  />
     </div>
   );
 }
