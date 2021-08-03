@@ -55,7 +55,7 @@ export default function JobAdvertCreate(){
         toast.error(result.response.data.message)
 
       })
-      history.push("/jobAvertList");
+      history.push("/jobAdvertList");
     },
 
     });
