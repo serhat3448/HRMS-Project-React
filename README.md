@@ -1,3 +1,7 @@
+#Proje canlı sunucu : https://hrms-canli.herokuapp.com/
+
+#Canlı sunucu backend : https://hrms-backend-canli.herokuapp.com/swagger-ui.html#/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
